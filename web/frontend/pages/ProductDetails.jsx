@@ -24,6 +24,11 @@ function ProductDetails() {
                 <p>No product details available. Please select a product.</p>
               </TextContainer>
             </Card>
+            <Card>
+              <TextContainer>
+                <p>No product details available. Please select a product.</p>
+              </TextContainer>
+            </Card>
           </Layout.Section>
         </Layout>
       </Page>
