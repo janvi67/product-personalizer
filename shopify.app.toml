@@ -1,15 +1,10 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "23102e16d4ffc1e5d75c7f7c6cfd7679"
-application_url = "https://nb-specifically-phone-distinction.trycloudflare.com"
+client_id = "bb054ced5db0e3c36329770b86336482"
+application_url = "https://mike-teach-falls-diego.trycloudflare.com"
 embedded = true
-name = "product persionalizer"
-handle = "product-persionalizer"
-
-[build]
-include_config_on_deploy = true
-dev_store_url = "urbann-curate.myshopify.com"
-automatically_update_urls_on_dev = true
+name = "my-app"
+handle = "my-app-1513"
 
 [webhooks]
 api_version = "2024-10"
@@ -20,10 +15,14 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://nb-specifically-phone-distinction.trycloudflare.com/auth/callback",
-  "https://nb-specifically-phone-distinction.trycloudflare.com/auth/shopify/callback",
-  "https://nb-specifically-phone-distinction.trycloudflare.com/api/auth/callback"
+  "https://mike-teach-falls-diego.trycloudflare.com/auth/callback",
+  "https://mike-teach-falls-diego.trycloudflare.com/auth/shopify/callback",
+  "https://mike-teach-falls-diego.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
 embedded = false
+
+[build]
+dev_store_url = "urbann-curate.myshopify.com"
+automatically_update_urls_on_dev = true

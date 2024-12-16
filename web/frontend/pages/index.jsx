@@ -1,91 +1,77 @@
+// import {
+//   Card,
+//   Page,
+//   Layout,
+//   TextContainer,
+//   Image,
+//   Stack,
+//   Link,
+//   Heading,
+// } from "@shopify/polaris";
+// import { TitleBar } from "@shopify/app-bridge-react";
+
+// import { ProductCard, ProductsCard } from "../components";
+// import { useAppQuery } from "../hooks";
+// import { ProductList } from "../components/ProductList";
+
+// export default function HomePage() {
+//   const { data, isLoading, refetch, isRefetching } = useAppQuery({
+//     url: "/api/products",
+//   });
+
+//   console.log("data: ", data);
+
+//   return (
+//     <Page title="Dashboard">
+//       <Layout>
+//         <Layout.Section>
+//           <ProductsCard />
+//         </Layout.Section>
+//         <Layout.Section>
+//           <ProductList
+//             data={data}
+//             isLoading={isLoading}
+//             isRefetching={isRefetching}
+//           />
+//         </Layout.Section>
+//       </Layout>
+//     </Page>
+//   );
+// }
+
 import {
   Card,
   Page,
   Layout,
   TextContainer,
-  Image,
-  Stack,
-  Link,
-  Text,
+  Button,
+  DisplayText,
 } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation, Trans } from "react-i18next";
+import { useNavigate } from "@shopify/app-bridge-react";
 
-import { trophyImage } from "../assets";
-
-import { ProductsCard } from "../components";
 
 export default function HomePage() {
-  const { t } = useTranslation();
+  const Navigate=useNavigate();
+ 
   return (
-    <Page narrowWidth>
-      <TitleBar title={t("HomePage.title")} />
+    <Page fullWidth>
       <Layout>
         <Layout.Section>
           <Card sectioned>
-            <Stack
-              wrap={false}
-              spacing="extraTight"
-              distribution="trailing"
-              alignment="center"
-            >
-              <Stack.Item fill>
-                <TextContainer spacing="loose">
-                  <Text as="h2" variant="headingMd">
-                    {t("HomePage.heading")}
-                  </Text>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.yourAppIsReadyToExplore"
-                      components={{
-                        PolarisLink: (
-                          <Link url="https://polaris.shopify.com/" external />
-                        ),
-                        AdminApiLink: (
-                          <Link
-                            url="https://shopify.dev/api/admin-graphql"
-                            external
-                          />
-                        ),
-                        AppBridgeLink: (
-                          <Link
-                            url="https://shopify.dev/apps/tools/app-bridge"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p>{t("HomePage.startPopulatingYourApp")}</p>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.learnMore"
-                      components={{
-                        ShopifyTutorialLink: (
-                          <Link
-                            url="https://shopify.dev/apps/getting-started/add-functionality"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                </TextContainer>
-              </Stack.Item>
-              <Stack.Item>
-                <div style={{ padding: "0 20px" }}>
-                  <Image
-                    source={trophyImage}
-                    alt={t("HomePage.trophyAltText")}
-                    width={120}
-                  />
-                </div>
-              </Stack.Item>
-            </Stack>
+            <TextContainer>
+              <DisplayText variant="heading3xl" as="h2">
+                Welcome to the Product Recommendation App
+              </DisplayText>
+              <p>
+                This app helps you explore personalized product recommendations
+                to enhance your shopping experience. Navigate through the app to
+                find products tailored to your preferences.
+              </p>
+              <Button primary onClick={() => Navigate("/Recommendation")}>
+                View Recommendation
+              </Button>
+            </TextContainer>
           </Card>
-        </Layout.Section>
-        <Layout.Section>
-          <ProductsCard />
         </Layout.Section>
       </Layout>
     </Page>
